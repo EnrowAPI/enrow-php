@@ -17,8 +17,7 @@ $enrow = new Enrow('your_api_key');
 
 $result = $enrow->email->find([
     'company_domain' => 'apple.com',
-    'first_name' => 'Tim',
-    'last_name' => 'Cook',
+    'fullname' => 'Tim Cook',
 ]);
 
 echo $result['email']; // tcook@apple.com
@@ -29,8 +28,7 @@ echo $result['email']; // tcook@apple.com
 ```php
 $search = $enrow->email->find([
     'company_domain' => 'apple.com',
-    'first_name' => 'Tim',
-    'last_name' => 'Cook',
+    'fullname' => 'Tim Cook',
     'settings' => ['country_code' => 'US'],
 ]);
 
@@ -39,8 +37,8 @@ $result = $enrow->email->get('search_abc123');
 // Bulk
 $batch = $enrow->email->findBulk([
     'searches' => [
-        ['company_domain' => 'apple.com', 'first_name' => 'Tim', 'last_name' => 'Cook'],
-        ['company_domain' => 'microsoft.com', 'first_name' => 'Satya', 'last_name' => 'Nadella'],
+        ['company_domain' => 'apple.com', 'fullname' => 'Tim Cook'],
+        ['company_domain' => 'microsoft.com', 'fullname' => 'Satya Nadella'],
     ],
 ]);
 $results = $enrow->email->getBulk($batch['batch_id']);

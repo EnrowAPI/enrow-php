@@ -18,7 +18,7 @@ class EmailFinder
 
     public function get(string $id): array
     {
-        return $this->http->get("/email/find/single/{$id}");
+        return $this->http->get('/email/find/single', ['id' => $id]);
     }
 
     public function findBulk(array $params): array
@@ -28,6 +28,6 @@ class EmailFinder
 
     public function getBulk(string $id): array
     {
-        return $this->http->get("/email/find/bulk/{$id}");
+        return $this->http->get('/email/find/bulk', ['id' => $id]);
     }
 }

@@ -13,21 +13,21 @@ class EmailVerifier
 
     public function single(array $params): array
     {
-        return $this->http->post('/verify/single', $params);
+        return $this->http->post('/email/verify/single', $params);
     }
 
     public function get(string $id): array
     {
-        return $this->http->get("/verify/single/{$id}");
+        return $this->http->get('/email/verify/single', ['id' => $id]);
     }
 
     public function bulk(array $params): array
     {
-        return $this->http->post('/verify/bulk', $params);
+        return $this->http->post('/email/verify/bulk', $params);
     }
 
     public function getBulk(string $id): array
     {
-        return $this->http->get("/verify/bulk/{$id}");
+        return $this->http->get('/email/verify/bulk', ['id' => $id]);
     }
 }
