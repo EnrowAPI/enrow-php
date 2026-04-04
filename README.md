@@ -93,7 +93,7 @@ try {
 } catch (RateLimitException $e) {
     // 429
 } catch (InsufficientBalanceException $e) {
-    // 402
+    // 422
 } catch (EnrowException $e) {
     echo $e->status . ': ' . $e->getMessage();
 }

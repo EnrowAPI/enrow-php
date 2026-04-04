@@ -57,7 +57,7 @@ class HttpClient
 
         match ($status) {
             401 => throw new AuthenticationException($message),
-            402 => throw new InsufficientBalanceException($message),
+            422 => throw new InsufficientBalanceException($message),
             429 => throw new RateLimitException($message),
             default => throw new EnrowException($message, $status, $error),
         };
