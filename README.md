@@ -68,16 +68,6 @@ $batch = $enrow->phone->findBulk(['searches' => [...]]);
 $results = $enrow->phone->getBulk($batch['batch_id']);
 ```
 
-## Reverse Email
-
-```php
-$person = $enrow->reverseEmail->find(['email' => 'tcook@apple.com']);
-echo $person['first_name']; // "Tim"
-
-$batch = $enrow->reverseEmail->findBulk(['emails' => [['email' => 'tcook@apple.com']]]);
-$results = $enrow->reverseEmail->getBulk($batch['id']);
-```
-
 ## Account
 
 ```php
@@ -110,7 +100,6 @@ try {
 | Email Finder | 1 credit/email |
 | Email Verifier | 0.25 credit/email |
 | Phone Finder | 50 credits/phone |
-| Reverse Email | 5 credits/lookup |
 
 ## Links
 
