@@ -1,5 +1,9 @@
 # Enrow PHP SDK
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/EnrowAPI/enrow-php)](https://github.com/EnrowAPI/enrow-php)
+[![Last commit](https://img.shields.io/github/last-commit/EnrowAPI/enrow-php)](https://github.com/EnrowAPI/enrow-php/commits)
+
 Find and verify professional emails, phone numbers, and contact information with the [Enrow API](https://enrow.io).
 
 ## Install
