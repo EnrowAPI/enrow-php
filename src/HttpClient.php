@@ -52,12 +52,17 @@ class HttpClient
     {
         $status = $e->getResponse() ? $e->getResponse()->getStatusCode() : 500;
         $body = $e->getResponse() ? json_decode($e->getResponse()->getBody()->getContents(), true) : [];
-        $message = $body['message'] ?? $e->getMessage();
+        // Errors carry `message`, except a 402 from a single endpoint,
+        // which answers { "reason": "...", "success": false }.
+        $message = $body['message'] ?? $body['reason'] ?? null;
+        if (!is_string($message) || $message === '') {
+            $message = $e->getMessage();
+        }
         $error = $body['error'] ?? 'UnknownError';
 
         match ($status) {
             401 => throw new AuthenticationException($message),
-            422 => throw new InsufficientBalanceException($message),
+            402 => throw new InsufficientBalanceException($message),
             429 => throw new RateLimitException($message),
             default => throw new EnrowException($message, $status, $error),
         };
